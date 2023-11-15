@@ -258,6 +258,10 @@ public static class ProjectShell
             case "code":
                 AddAsset(console, args[2], projectFile.Code, projectFile);
                 break;
+            case "script":
+            case "scripts":
+                AddAsset(console, args[2], projectFile.Scripts, projectFile);
+                break;
             default:
                 return Command.CommandResult.InvalidSyntax;
         }

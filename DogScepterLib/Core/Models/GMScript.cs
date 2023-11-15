@@ -7,9 +7,9 @@ namespace DogScepterLib.Core.Models
     /// <summary>
     /// Contains a GameMaker script.
     /// </summary>
-    public class GMScript : IGMSerializable
+    public class GMScript : IGMNamedSerializable
     {
-        public GMString Name;
+        public GMString Name { get; set; }
         public int CodeID;
         public bool Constructor;
 

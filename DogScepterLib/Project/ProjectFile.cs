@@ -51,6 +51,7 @@ namespace DogScepterLib.Project
         public AssetRefList<AssetObject> Objects { get; set; } = new();
         public AssetRefList<AssetRoom> Rooms { get; set; } = new();
         public AssetRefList<AssetCode> Code { get; set; } = new();
+        public AssetRefList<AssetScript> Scripts { get; set; } = new();
 
         public Dictionary<int, GMChunkAUDO> _CachedAudioChunks;
         public Textures InternalTextures = null;
@@ -114,6 +115,7 @@ namespace DogScepterLib.Project
             new ObjectConverter(),
             new RoomConverter(),
             new CodeConverter(),
+            new ScriptConverter(),
         };
 
         public readonly static Dictionary<Type, Type> AssetTypeConverter = new Dictionary<Type, Type>()
@@ -126,6 +128,7 @@ namespace DogScepterLib.Project
             { typeof(AssetPath), typeof(PathConverter) },
             { typeof(AssetRoom), typeof(RoomConverter) },
             { typeof(AssetCode), typeof(CodeConverter) },
+            { typeof(AssetScript), typeof(ScriptConverter) }
         };
 
         public T GetConverter<T>() where T : IConverter, new()
@@ -594,6 +597,7 @@ namespace DogScepterLib.Project
             { typeof(AssetPath), "Paths" },
             { typeof(AssetRoom), "Rooms" },
             { typeof(AssetCode), "Code" },
+            { typeof(AssetScript), "Scripts" },
         };
         public readonly static HashSet<Type> AssetUsesFolder = new HashSet<Type>()
         {
@@ -604,6 +608,7 @@ namespace DogScepterLib.Project
             typeof(AssetObject), 
             typeof(AssetRoom),
             typeof(AssetCode),
+            typeof(AssetScript)
         };
 
         public ProjectJson()
