@@ -35,7 +35,7 @@ namespace DogScepterLib.Project.Assets
                 if (Code != null)
                 {
                     int assetIndex = pf.Code.FindIndex(Code);
-                    if (assetIndex < -1)
+                    if (assetIndex != -1)
                     {
                         pf.AddAssetsToJSON(pf.Code, new List<int>() { assetIndex }, true,
                             Path.GetRelativePath(pf.DirectoryPath, Path.GetDirectoryName(assetPath)).Replace('\\', '/'));
