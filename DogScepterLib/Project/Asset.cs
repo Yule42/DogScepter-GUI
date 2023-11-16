@@ -7,12 +7,20 @@ using System.Security.Cryptography;
 
 namespace DogScepterLib.Project
 {
+    public enum AssetModificationType
+    {
+        Modify,
+        Exclude,
+        Append
+    }
+
     /// <summary>
     /// A high-level asset inside a project, such as a sprite or room
     /// </summary>
     public abstract class Asset
     {
         public string Name { get; set; }
+        public AssetModificationType ModificationType { get; set; }
         public byte[] Hash;
         public int Length;
         public bool Dirty = false;

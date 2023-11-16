@@ -104,7 +104,17 @@ public static class ProjectShell
             new Command(new[] { "add" },
                 "Adds an asset from game data to the project.",
                 "add <asset_type> <asset_names>",
-                args => AddCommand(console, projectFile, args)),
+                args => AssetCommand(AssetCommandType.Add, console, projectFile, args)),
+
+            new Command(new[] { "delete" },
+                "Removes an asset from the project, or from game data.",
+                "delete <asset_type> <asset_name>",
+                args => AssetCommand(AssetCommandType.Delete, console, projectFile, args)),
+
+            new Command(new[] { "delete" },
+                "Adds a new asset to game data.",
+                "new <asset_type> <asset_name>",
+                args => AssetCommand(AssetCommandType.New, console, projectFile, args)),
 
             new Command(new[] { "apply" },
                 "Applies the project to the input data file, resulting in output.",
@@ -221,46 +231,78 @@ public static class ProjectShell
         return ReloadProject(console, ref projectFile, projectConfig, verbose, reloadData) ? Command.CommandResult.None : Command.CommandResult.Quit;
     }
 
-    private static Command.CommandResult AddCommand(IConsole console, ProjectFile projectFile, string[] args)
+    private enum AssetCommandType
+    {
+        Add,
+        Delete,
+        New
+    }
+
+    /// <summary>
+    /// An abstraction of asset commands for the project shell. Manipulates assets inside and outside the project.
+    /// </summary>
+    /// <param name="type">The command type.</param>
+    /// <param name="console">The console on where to output messages to.</param>
+    /// <param name="projectFile">The project file which should be referenced.</param>
+    /// <param name="args">The command arguments.</param>
+    /// <returns><see cref="Command.CommandResult.None"/> if no errors occured.</returns>
+    private static Command.CommandResult AssetCommand(AssetCommandType type, IConsole console, ProjectFile projectFile, string[] args)
     {
         if (args.Length != 3)
             return Command.CommandResult.InvalidSyntax;
+
+        void cmdDelegate<T>(AssetRefList<T> assetList) where T : Asset
+        {
+            switch (type)
+            {
+                case AssetCommandType.Add:
+                    AddAsset<T>(console, args[2], assetList, projectFile);
+                    break;
+                case AssetCommandType.Delete:
+                    DeleteAsset(console, args[2], assetList, projectFile);
+                    break;
+                case AssetCommandType.New:
+                    NewAsset(console, args[2], assetList, projectFile);
+                    break;
+            }
+        }
+
         switch (args[1].ToLowerInvariant())
         {
             case "path":
             case "paths":
-                AddAsset(console, args[2], projectFile.Paths, projectFile);
+                cmdDelegate(projectFile.Paths);
                 break;
             case "sprite":
             case "sprites":
-                AddAsset(console, args[2], projectFile.Sprites, projectFile);
+                cmdDelegate(projectFile.Sprites);
                 break;
             case "sound":
             case "sounds":
-                AddAsset(console, args[2], projectFile.Sounds, projectFile);
+                cmdDelegate(projectFile.Sounds);
                 break;
             case "object":
             case "objects":
-                AddAsset(console, args[2], projectFile.Objects, projectFile);
+                cmdDelegate(projectFile.Objects);
                 break;
             case "background":
             case "backgrounds":
-                AddAsset(console, args[2], projectFile.Backgrounds, projectFile);
+                cmdDelegate(projectFile.Backgrounds);
                 break;
             case "font":
             case "fonts":
-                AddAsset(console, args[2], projectFile.Fonts, projectFile);
+                cmdDelegate(projectFile.Fonts);
                 break;
             case "room":
             case "rooms":
-                AddAsset(console, args[2], projectFile.Rooms, projectFile);
+                cmdDelegate(projectFile.Rooms);
                 break;
             case "code":
-                AddAsset(console, args[2], projectFile.Code, projectFile);
+                cmdDelegate(projectFile.Code);
                 break;
             case "script":
             case "scripts":
-                AddAsset(console, args[2], projectFile.Scripts, projectFile);
+                cmdDelegate(projectFile.Scripts);
                 break;
             default:
                 return Command.CommandResult.InvalidSyntax;
@@ -350,6 +392,14 @@ public static class ProjectShell
         projectFile.SaveMain();
 
         console.Output.WriteLine($"Added {indices.Count} assets.");
+    }
+
+    private static void DeleteAsset<T>(IConsole console, string assets, AssetRefList<T> list, ProjectFile projectFile) where T : Asset
+    {
+    }
+
+    private static void NewAsset<T>(IConsole console, string assets, AssetRefList<T> list, ProjectFile projectFile) where T : Asset
+    {
     }
 
     /// <summary>
