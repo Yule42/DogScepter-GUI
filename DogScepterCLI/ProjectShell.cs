@@ -111,7 +111,7 @@ public static class ProjectShell
                 "delete <asset_type> <asset_name>",
                 args => AssetCommand(AssetCommandType.Delete, console, projectFile, args)),
 
-            new Command(new[] { "delete" },
+            new Command(new[] { "new" },
                 "Adds a new asset to game data.",
                 "new <asset_type> <asset_name>",
                 args => AssetCommand(AssetCommandType.New, console, projectFile, args)),
