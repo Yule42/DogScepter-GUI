@@ -5,6 +5,8 @@ using System.Text;
 
 namespace DogScepterLib.Core.Chunks
 {
+    // this chunk appears to have been added after 2.3.6
+    // TODO: figure out what this actually is, saw some stuff that suggested it might be filter effects name, format of chunk: stores pointers to string names
     public class GMChunkFEDS : GMChunk
     {
         public GMUniquePointerList<GMFilterEffect> List;

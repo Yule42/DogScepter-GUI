@@ -6,7 +6,10 @@ using System.Text;
 
 namespace DogScepterLib.Core.Chunks
 {
-    public class GMChunkAGRP : GMChunk
+    /// <summary>
+    /// Contains audio groups.
+    /// </summary>
+    public class GMChunkAGRP : GMChunk // note: this chunk was added in bytecode version v14.
     {
         public GMUniquePointerList<GMAudioGroup> List;
         public Dictionary<int, GMData> AudioData;

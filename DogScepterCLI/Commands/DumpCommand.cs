@@ -20,56 +20,57 @@ namespace DogScepterCLI.Commands;
 /// The "dump" command, which dumps certain information from a GameMaker data file.
 /// </summary>
 [Command("dump", Description = "Dumps certain information from an input data file path.")]
-// ReSharper disable once UnusedType.Global - used as a Command for CliFix
+// ReSharper disable once UnusedType.Global - used as a Command for CliFx
+// In actual human terms: This class isn't meant to be used by the programmer, it's only for the library CliFx
 public class DumpCommand : ICommand
 {
     /// <summary>
     /// File path to the GameMaker data file.
     /// </summary>
     [CommandParameter(0, Description = "Input data file path.")]
-    // ReSharper disable once MemberCanBePrivate.Global - used as an Option for CliFix
+    // ReSharper disable once MemberCanBePrivate.Global - used as an Option for CliFx
     public string DataFile { get; private set; } = null;
 
     /// <summary>
     /// Directory path on where to output dumped files. If <see langword="null"/>, then the current working directory should be used.
     /// </summary>
     [CommandOption("output", 'o', Description = "If not the working directory, specifies the output directory.")]
-    // ReSharper disable once MemberCanBePrivate.Global - used as an Option for CliFix
+    // ReSharper disable once MemberCanBePrivate.Global - used as an Option for CliFx
     public string OutputDirectory { get; private set; } = null;
 
     /// <summary>
     /// Whether to show verbose output from operations.
     /// </summary>
     [CommandOption("verbose", 'v', Description = "Whether to show verbose output from operations.")]
-    // ReSharper disable once MemberCanBePrivate.Global - used as an Option for CliFix
+    // ReSharper disable once MemberCanBePrivate.Global - used as an Option for CliFx
     public bool Verbose { get; init; } = false;
 
     /// <summary>
     /// Whether to dump textures.
     /// </summary>
     [CommandOption("textures", 't', Description = "Dump textures.")]
-    // ReSharper disable once MemberCanBePrivate.Global - used as an Option for CliFix
+    // ReSharper disable once MemberCanBePrivate.Global - used as an Option for CliFx
     public bool DumpTextures { get; private set; }
 
     /// <summary>
     /// Whether to dump strings.
     /// </summary>
     [CommandOption("strings", 's', Description = "Dump strings.")]
-    // ReSharper disable once MemberCanBePrivate.Global - used as an Option for CliFix
+    // ReSharper disable once MemberCanBePrivate.Global - used as an Option for CliFx
     public bool DumpStrings { get; private set; }
 
     /// <summary>
     /// Whether to dump decompiled code.
     /// </summary>
     [CommandOption("code", 'c', Description = "Dump decompiled code.")]
-    // ReSharper disable once MemberCanBePrivate.Global - used as an Option for CliFix
+    // ReSharper disable once MemberCanBePrivate.Global - used as an Option for CliFx
     public bool DumpCode { get; private set; }
 
     /// <summary>
     /// Whether to dump rooms as JSON.
     /// </summary>
     [CommandOption("rooms", 'r', Description = "Dump rooms as JSON.")]
-    // ReSharper disable once MemberCanBePrivate.Global - used as an Option for CliFix
+    // ReSharper disable once MemberCanBePrivate.Global - used as an Option for CliFx
     public bool DumpRooms { get; private set; }
 
 
@@ -77,7 +78,7 @@ public class DumpCommand : ICommand
     /// Whether to enable features more useful for comparing versions of a game
     /// </summary>
     [CommandOption("hackycompare", Description = "Enables hacky comparison mode.")]
-    // ReSharper disable once MemberCanBePrivate.Global - used as an Option for CliFix
+    // ReSharper disable once MemberCanBePrivate.Global - used as an Option for CliFx
     public bool ComparisonMode { get; private set; }
 
 
@@ -85,7 +86,7 @@ public class DumpCommand : ICommand
     /// The name of the macro config that should be used.
     /// </summary>
     [CommandOption("config", 'n', Description = "Set the configuration to use.")]
-    // ReSharper disable once MemberCanBePrivate.Global - used as an Option for CliFix
+    // ReSharper disable once MemberCanBePrivate.Global - used as an Option for CliFx
     public string Config { get; private set; } = null;
 
     public ValueTask ExecuteAsync(IConsole console)

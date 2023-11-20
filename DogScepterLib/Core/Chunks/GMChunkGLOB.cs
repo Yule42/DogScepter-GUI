@@ -5,6 +5,9 @@ using System.Text;
 namespace DogScepterLib.Core.Chunks
 {
     // Global init code entries
+    /// <summary>
+    /// Contains code executed at game start.
+    /// </summary>
     public class GMChunkGLOB : GMChunk
     {
         public List<int> List;

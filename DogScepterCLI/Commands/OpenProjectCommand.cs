@@ -14,42 +14,43 @@ namespace DogScepterCLI.Commands;
 /// The "open" command, which opens an existing DogScepter project.
 /// </summary>
 [Command("open", Description = "Opens an existing DogScepter project.")]
-// ReSharper disable once UnusedType.Global - used as a Command for CliFix
+// ReSharper disable once UnusedType.Global - used as a Command for CliFx
+// In actual human terms: This class isn't meant to be used by the programmer, it's only for the library CliFx
 public class OpenProjectCommand : ICommand
 {
     /// <summary>
     /// File path that should be associated with the DogScepter project, if there wasn't one associated already.
     /// </summary>
     [CommandOption("input", 'i', Description = "Input data file path, if necessary.")]
-    // ReSharper disable once MemberCanBePrivate.Global RedundantDefaultMemberInitializer - used as an Option for CliFix
+    // ReSharper disable once MemberCanBePrivate.Global RedundantDefaultMemberInitializer - used as an Option for CliFx
     public string DataFile { get; private set; } = null;
 
     /// <summary>
     /// Directory path on where to output compiled files. If <see langword="null"/>, then the current working directory should be used.
     /// </summary>
     [CommandOption("output", 'o', Description = "Output directory, if necessary.")]
-    // ReSharper disable once MemberCanBePrivate.Global RedundantDefaultMemberInitializer - used as an Option for CliFix
+    // ReSharper disable once MemberCanBePrivate.Global RedundantDefaultMemberInitializer - used as an Option for CliFx
     public string CompiledOutputDirectory { get; private set; } = null;
 
     /// <summary>
     /// Whether to show verbose output from operations.
     /// </summary>
     [CommandOption("verbose", 'v', Description = "Whether to show verbose output from operations.")]
-    // ReSharper disable once MemberCanBePrivate.Global - used as an Option for CliFix
+    // ReSharper disable once MemberCanBePrivate.Global - used as an Option for CliFx
     public bool Verbose { get; init; } = false;
 
     /// <summary>
     /// The path where the DogScepter project gets created. If <see langword="null"/>, then the current working directory should be used.
     /// </summary>
     [CommandOption("dir", 'd', Description = "If not the working directory, specifies the project location.")]
-    // ReSharper disable once MemberCanBePrivate.Global - used as an Option for CliFix
+    // ReSharper disable once MemberCanBePrivate.Global - used as an Option for CliFx
     public string ProjectDirectory { get; init; } = null;
 
     /// <summary>
     /// Whether to use an interactive shell.
     /// </summary>
     [CommandOption("int", Description = "Whether to use interactive shell.")]
-    // ReSharper disable once MemberCanBePrivate.Global - used as an Option for CliFix
+    // ReSharper disable once MemberCanBePrivate.Global - used as an Option for CliFx
     public bool Interactive { get; init; } = true;
 
     public ValueTask ExecuteAsync(IConsole console)

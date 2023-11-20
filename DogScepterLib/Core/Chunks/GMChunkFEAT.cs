@@ -3,6 +3,10 @@ using System.Collections.Generic;
 
 namespace DogScepterLib.Core.Chunks
 {
+    /// <summary>
+    /// Contains feature functions.
+    /// </summary>
+    // this chunk was added in 2022.8, apparently.
     public class GMChunkFEAT : GMChunk
     {
         public List<GMString> FeatureFlags;

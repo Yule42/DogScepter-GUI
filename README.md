@@ -29,6 +29,7 @@ DogScepter is a work-in-progress modding tool geared toward (but not limited to)
     	- Paths
     	- Sounds
     	- Objects
+		- Scripts
     	- Backgrounds
     	- Sprites
     	- Fonts
@@ -41,7 +42,7 @@ DogScepter is a work-in-progress modding tool geared toward (but not limited to)
 * Msnshame and Agentalex9 for assistance in creating the icon for the tool. Additional thanks to the Underminers Discord server members for being there to come up with the name, as well.
 * Previous GameMaker/Undertale data format research and tools
     - https://pcy.ulyssis.be/undertale/
-    - https://github.com/donkeybonks/acolyte/wiki/Bytecode
+    - [https://github.com/donkeybonks/acolyte/wiki/Bytecode](https://web.archive.org/web/20191126144953if_/https://github.com/donkeybonks/acolyte/wiki/Bytecode)
     - https://github.com/PoroCYon/Altar.NET
     - https://github.com/WarlockD/GMdsam
 	- Additional research by Nik (@nkrapivin)

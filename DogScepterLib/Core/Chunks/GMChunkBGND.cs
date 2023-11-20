@@ -5,6 +5,9 @@ using System.Text;
 
 namespace DogScepterLib.Core.Chunks
 {
+    /// <summary>
+    /// Contains backgrounds.
+    /// </summary>
     public class GMChunkBGND : GMChunk
     {
         public GMUniquePointerList<GMBackground> List;

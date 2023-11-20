@@ -106,12 +106,12 @@ public static class ProjectShell
                 "add <asset_type> <asset_names>",
                 args => AssetCommand(AssetCommandType.Add, console, projectFile, args)),
 
-            new Command(new[] { "delete" },
+            new Command(new[] { "delete" }, // TODO: implement this command
                 "Removes an asset from the project, or from game data.",
                 "delete <asset_type> <asset_name>",
                 args => AssetCommand(AssetCommandType.Delete, console, projectFile, args)),
 
-            new Command(new[] { "new" },
+            new Command(new[] { "new" }, // TODO: implement this command
                 "Adds a new asset to game data.",
                 "new <asset_type> <asset_name>",
                 args => AssetCommand(AssetCommandType.New, console, projectFile, args)),
@@ -231,10 +231,22 @@ public static class ProjectShell
         return ReloadProject(console, ref projectFile, projectConfig, verbose, reloadData) ? Command.CommandResult.None : Command.CommandResult.Quit;
     }
 
+    /// <summary>
+    /// (Unimplemented) Tag to signal what the command will do with the asset.
+    /// </summary>
     private enum AssetCommandType
     {
+        /// <summary>
+        /// Add asset from data file to project.
+        /// </summary>
         Add,
+        /// <summary>
+        /// Remove asset from project (TODO: implement this)
+        /// </summary>
         Delete,
+        /// <summary>
+        /// Create new asset in project. (TODO: implement this)
+        /// </summary>
         New
     }
 
@@ -394,10 +406,12 @@ public static class ProjectShell
         console.Output.WriteLine($"Added {indices.Count} assets.");
     }
 
+    // TODO: implement this function
     private static void DeleteAsset<T>(IConsole console, string assets, AssetRefList<T> list, ProjectFile projectFile) where T : Asset
     {
     }
 
+    // TODO: implement this function
     private static void NewAsset<T>(IConsole console, string assets, AssetRefList<T> list, ProjectFile projectFile) where T : Asset
     {
     }

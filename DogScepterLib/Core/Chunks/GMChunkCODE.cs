@@ -5,6 +5,9 @@ using System.Text;
 
 namespace DogScepterLib.Core.Chunks
 {
+    /// <summary>
+    /// Contains code.
+    /// </summary>
     public class GMChunkCODE : GMChunk
     {
         public GMUniquePointerList<GMCode> List;

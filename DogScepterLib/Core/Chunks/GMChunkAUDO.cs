@@ -5,6 +5,9 @@ using System.Text;
 
 namespace DogScepterLib.Core.Chunks
 {
+    /// <summary>
+    /// Contains audio.
+    /// </summary>
     public class GMChunkAUDO : GMChunk
     {
         public GMUniquePointerList<GMAudio> List;

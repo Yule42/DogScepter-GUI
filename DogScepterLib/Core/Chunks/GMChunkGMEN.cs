@@ -5,6 +5,11 @@ using System.Text;
 namespace DogScepterLib.Core.Chunks
 {
     // Game end code entries (undocumented)
+    /// <summary>
+    /// Contains AtGameEnd scripts.
+    /// </summary>
+    // this chunk is a list of indexes of scripts executed using gml_pragma("AtGameEnd", "scr_scriptname()"); to run them after the GameEnd event.
+    // heck if any game actually uses it
     public class GMChunkGMEN : GMChunk
     {
         public List<int> List;

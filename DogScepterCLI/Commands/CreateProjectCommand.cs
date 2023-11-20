@@ -14,42 +14,43 @@ namespace DogScepterCLI.Commands;
 /// The "create" command, which creates a new DogScepter project.
 /// </summary>
 [Command("create", Description = "Creates a new DogScepter project.")]
-// ReSharper disable once UnusedType.Global - used as a Command for CliFix
+// ReSharper disable once UnusedType.Global - used as a Command for CliFx
+// In actual human terms: This class isn't meant to be used by the programmer, it's only for the library CliFx
 public class CreateProjectCommand : ICommand
 {
     /// <summary>
     /// The path to a GameMaker data file, which will be associated with the DogScepter project.
     /// </summary>
     [CommandOption("input", 'i', Description = "Input data file path.")]
-    // ReSharper disable once MemberCanBePrivate.Global RedundantDefaultMemberInitializer - used as an Option for CliFix
+    // ReSharper disable once MemberCanBePrivate.Global RedundantDefaultMemberInitializer - used as an Option for CliFx
     public string DataFile { get; private set; } = null;
 
     /// <summary>
     /// The path where compiled files will be generated.
     /// </summary>
     [CommandOption("output", 'o', Description = "Output directory for compiled files.")]
-    // ReSharper disable once MemberCanBePrivate.Global RedundantDefaultMemberInitializer - used as an Option for CliFix
+    // ReSharper disable once MemberCanBePrivate.Global RedundantDefaultMemberInitializer - used as an Option for CliFx
     public string CompiledOutputDirectory { get; private set; } = null;
 
     /// <summary>
     /// Whether to show verbose output from operations.
     /// </summary>
     [CommandOption("verbose", 'v', Description = "Whether to show verbose output from operations.")]
-    // ReSharper disable once MemberCanBePrivate.Global - used as an Option for CliFix
+    // ReSharper disable once MemberCanBePrivate.Global - used as an Option for CliFx
     public bool Verbose { get; init; } = false;
 
     /// <summary>
     /// The path where the DogScepter project gets created. If <see langword="null"/>, then the current working directory should be used.
     /// </summary>
     [CommandOption("dir", 'd', Description = "If not the working directory, specifies the project location.")]
-    // ReSharper disable once MemberCanBePrivate.Global - used as an Option for CliFix
+    // ReSharper disable once MemberCanBePrivate.Global - used as an Option for CliFx
     public string ProjectDirectory { get; init; } = null;
 
     /// <summary>
     /// Whether to use an interactive mode.
     /// </summary>
     [CommandOption("int", Description = "Whether to use interactive shell.")]
-    // ReSharper disable once MemberCanBePrivate.Global - used as an Option for CliFix
+    // ReSharper disable once MemberCanBePrivate.Global - used as an Option for CliFx
     public bool Interactive { get; init; } = true;
 
     public ValueTask ExecuteAsync(IConsole console)

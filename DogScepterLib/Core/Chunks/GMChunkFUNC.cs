@@ -5,6 +5,9 @@ using System.Text;
 
 namespace DogScepterLib.Core.Chunks
 {
+    /// <summary>
+    /// Contains data about the Functions of the game.
+    /// </summary>
     public class GMChunkFUNC : GMChunk
     {
         public GMList<GMFunctionEntry> FunctionEntries;
@@ -28,7 +31,7 @@ namespace DogScepterLib.Core.Chunks
             }
         }
 
-        public override void Deserialize(GMDataReader reader)
+        public override void Deserialize(GMDataReader reader) // TODO: YYC games between the bytecode 14 (exclusive) and 16 (inclusive) have a FUNC chunk that is completely empty, might want to address that
         {
             base.Deserialize(reader);
 

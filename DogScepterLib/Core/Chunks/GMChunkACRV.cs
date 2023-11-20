@@ -5,6 +5,9 @@ using System.Text;
 
 namespace DogScepterLib.Core.Chunks
 {
+    /// <summary>
+    /// Contains animation curves.
+    /// </summary>
     public class GMChunkACRV : GMChunk
     {
         public GMUniquePointerList<GMAnimCurve> List;

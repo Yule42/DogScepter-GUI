@@ -5,6 +5,10 @@ using System.Text;
 
 namespace DogScepterLib.Core.Chunks
 {
+    /// <summary>
+    /// Contains built-in particle sprites.
+    /// </summary>
+    // as far as i can tell, most games don't use this chunk, but it stores built-in particle sprites. i didnt look that hard though lol
     public class GMChunkEMBI : GMChunk
     {
         public GMList<EmbeddedImage> List;

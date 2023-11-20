@@ -5,6 +5,9 @@ using System.Text;
 
 namespace DogScepterLib.Core.Chunks
 {
+    /// <summary>
+    /// Contains font data.
+    /// </summary>
     public class GMChunkFONT : GMChunk
     {
         public GMUniquePointerList<GMFont> List;
